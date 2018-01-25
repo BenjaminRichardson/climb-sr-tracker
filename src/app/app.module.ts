@@ -1,18 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { MatchInputComponent } from './match-input/match-input.component';
+import { MatchDataManagerService } from './match-data-manager.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MatchInputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MatchDataManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
