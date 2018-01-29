@@ -1,9 +1,9 @@
-<div class="matchInput">
-  <h4>Input New Match Data</h4>
-  <label for="srInput">
-    SR:
-    <input name="srInput" type="number" min="0" max="9999">
-  </label>
-  <button type="button">Add Game Data</button>
+<h4>Input New Match Data</h4>
+<div class="matchInput input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">SR:</span>
+  </div>
+  <input name="srInput" class="form-control col" ngPattern="[0-9]{1,4}" [(ngModel)]="sr">
+  <button type="button" [disabled]="!sr" (click)="storeMatchRecord()" class="btn btn-primary col-3"><h2><strong>+</strong></h2></button>
 </div>
 

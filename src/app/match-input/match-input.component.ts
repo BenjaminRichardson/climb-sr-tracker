@@ -17,7 +17,10 @@ export class MatchInputComponent implements OnInit {
   }
 
   storeMatchRecord():void{
-    this.matchDataManager.storeMatchRecord(this.sr);
+    if(this.sr !== undefined){
+      this.matchDataManager.storeMatchRecord(this.sr);
+    }
+    this.sr = undefined;
   }
 
 }

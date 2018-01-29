@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Date</th>
+    <th>SR</th>
+    <th>W/D/L</th>
+    <th>Gain</th>
+  </tr>
+  <tr *ngFor="let record of records" [ngClass]="getWLDClass(record)">
+    <td>{{record.dateTime | date: 'MM/dd/yy'}}</td>
+    <td>{{record.sr}}</td>
+    <td>{{record.srGain | winLoss}}</td>
+    <td>{{record.srGain}}</td>
+  </tr>
+</table>

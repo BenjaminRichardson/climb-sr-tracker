@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
+import { DateService } from './date.service';
+import { DatabaseHelperService } from './database-helper.service';
+
+import { Observable } from 'rxjs/Observable';
+
+import { MatchData } from './match-data';
 
 @Injectable()
 export class MatchDataManagerService {
 
-  constructor() { }
+  constructor(private databaseHelper: DatabaseHelperService) { }
 
   storeMatchRecord(sr: number):void{
-    //get date/time
-    let timeStamp = new Date();
+    //get last SR
+    const lastMatch = this.databaseHelper.getMostRecentMatch();
+    //calculate difference
+    const difference = (lastMatch === null || lastMatch === undefined)? 0: sr - lastMatch.sr  ;
+    //put this in database
+    this.databaseHelper.putMatchData(sr, difference);
+  }
 
-    //this is all async?
-      //get last SR
-
-      //calculate difference
-
-      //put this in database
+  // Retrieves up to 20 
+  getMatchRecords(): Observable<MatchData[]>{
+    return this.databaseHelper.getMatchRecords();
   }
 
 }

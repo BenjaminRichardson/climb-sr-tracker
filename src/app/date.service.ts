@@ -9,7 +9,7 @@ export class DateService {
     return new Date().toISOString();
   }
 
-  getDateTime():string{
+  getDateTimeString():string{
     return this.getDateTimeISO();
   }
 
