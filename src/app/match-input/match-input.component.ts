@@ -23,4 +23,8 @@ export class MatchInputComponent implements OnInit {
     this.sr = undefined;
   }
 
+  isValid(){
+    return (this.sr)  && !isNaN(this.sr);
+  }
+
 }
