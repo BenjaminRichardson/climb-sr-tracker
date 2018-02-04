@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchDataManagerService } from '../match-data-manager.service';
 import { MatchData } from '../match-data';
-
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-match-display',
@@ -19,8 +19,8 @@ export class MatchDisplayComponent implements OnInit {
   } 
 
   getRecords(): void{
-    this.matchDataManager.getMatchRecords()
-        .subscribe( records => this.records = records );
+    let promiseSource = Observable.from(this.matchDataManager.getMatchRecords());
+    promiseSource.subscribe( records => this.records = records );
   }
 
   getWLDClass(match: MatchData) : string{

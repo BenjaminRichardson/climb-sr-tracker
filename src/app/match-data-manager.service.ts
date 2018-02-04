@@ -9,7 +9,8 @@ import { MatchData } from './match-data';
 @Injectable()
 export class MatchDataManagerService {
 
-  constructor(private databaseHelper: DatabaseHelperService) { }
+  constructor(private databaseHelper: DatabaseHelperService) { 
+  }
 
   storeMatchRecord(sr: number):void{
     //get last SR
@@ -21,7 +22,7 @@ export class MatchDataManagerService {
   }
 
   // Retrieves up to 20 
-  getMatchRecords(): Observable<MatchData[]>{
+  getMatchRecords(): Promise<MatchData[]>{
     return this.databaseHelper.getMatchRecords();
   }
 
